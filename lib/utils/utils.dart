@@ -18,7 +18,12 @@ class Utils {
     showFlushbar(context: context,
     flushbar : Flushbar(
       message : message,
-    )
+      backgroundColor: Colors.red,
+      title: "SORRY",
+      messageColor: Colors.black,
+      duration: Duration(seconds: 5),
+    )..show(context),
+
     );
   }
 
