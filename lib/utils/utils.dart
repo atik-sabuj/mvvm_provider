@@ -23,6 +23,7 @@ class Utils {
       message : message,
       messageColor: Colors.black,
       duration: Duration(seconds: 3),
+      borderRadius: BorderRadius.circular(8),
       flushbarPosition: FlushbarPosition.TOP,
       backgroundColor: Colors.red,
       reverseAnimationCurve: Curves.easeInOut,

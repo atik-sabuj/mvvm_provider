@@ -20,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: InkWell(
           onTap: (){
-            Utils.snackBar('No Internet Connection', context);
+            Utils.flushBarErrorMessage('No Internet Connection', context);
             //Utils.toastMessage('Click Me');
           },
           child: Text('Click')),
