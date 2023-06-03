@@ -12,6 +12,8 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
 
+  ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(false);
+
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
@@ -21,8 +23,14 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Log In'),
+        centerTitle: true,
+      ),
       body: SafeArea(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextFormField(
               controller: _emailController,
@@ -38,18 +46,24 @@ class _LoginViewState extends State<LoginView> {
               },
             ),
 
-            TextFormField(
-              controller: _passwordController,
-              obscureText: true,
-              focusNode: passwordFocusNode,
-              obscuringCharacter: "*",
-              decoration: InputDecoration(
-                  hintText: 'Password',
-                  labelText: 'Password',
-                  prefixIcon: Icon(Icons.alternate_email),
-                suffixIcon: Icon(Icons.visibility_off_outlined),
-              ),
-            ),
+            ValueListenableBuilder(
+                valueListenable: _obsecurePassword,
+                builder: (context, value, child) {
+                  return TextFormField(
+                    controller: _passwordController,
+                    obscureText: _obsecurePassword.value,
+                    focusNode: passwordFocusNode,
+                    obscuringCharacter: "*",
+                    decoration: InputDecoration(
+                      hintText: 'Password',
+                      labelText: 'Password',
+                      prefixIcon: Icon(Icons.lock_open_rounded),
+                      suffixIcon: Icon(Icons.visibility_off_outlined),
+                    ),
+                  );
+                }
+            )
+
           ],
         ),
       ),
