@@ -15,6 +15,9 @@ class _LoginViewState extends State<LoginView> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
+  FocusNode emailFocusNode = FocusNode();
+  FocusNode passwordFocusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,19 +26,28 @@ class _LoginViewState extends State<LoginView> {
           children: [
             TextFormField(
               controller: _emailController,
+              keyboardType: TextInputType.emailAddress,
+              focusNode: emailFocusNode,
               decoration: InputDecoration(
                 hintText: 'Email',
                 labelText: 'Email',
                 prefixIcon: Icon(Icons.alternate_email)
               ),
+              onFieldSubmitted: (value){
+                FocusScope.of(context).requestFocus(passwordFocusNode);
+              },
             ),
 
             TextFormField(
               controller: _passwordController,
+              obscureText: true,
+              focusNode: passwordFocusNode,
+              obscuringCharacter: "*",
               decoration: InputDecoration(
                   hintText: 'Password',
                   labelText: 'Password',
-                  prefixIcon: Icon(Icons.password)
+                  prefixIcon: Icon(Icons.alternate_email),
+                suffixIcon: Icon(Icons.visibility_off_outlined),
               ),
             ),
           ],
