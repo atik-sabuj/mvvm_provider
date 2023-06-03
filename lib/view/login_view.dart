@@ -22,10 +22,22 @@ class _LoginViewState extends State<LoginView> {
         child: Column(
           children: [
             TextFormField(
+              controller: _emailController,
               decoration: InputDecoration(
                 hintText: 'Email',
+                labelText: 'Email',
+                prefixIcon: Icon(Icons.alternate_email)
               ),
-            )
+            ),
+
+            TextFormField(
+              controller: _passwordController,
+              decoration: InputDecoration(
+                  hintText: 'Password',
+                  labelText: 'Password',
+                  prefixIcon: Icon(Icons.password)
+              ),
+            ),
           ],
         ),
       ),
