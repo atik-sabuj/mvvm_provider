@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_provider/res/color.dart';
 
 class RoundButton extends StatelessWidget {
 
@@ -20,7 +21,13 @@ required this.onPress,
       child: Container(
         height: 40,
         width: 200,
-        child: Text('As'),
+        decoration: BoxDecoration(
+          color: AppColors.buttonColor,
+          borderRadius: BorderRadius.circular(10)
+        ),
+        child: Center(
+            child: loading ? CircleAvatar() : Text(title,
+              style: TextStyle(color: AppColors.whiteColor),)),
       ),
     );
   }

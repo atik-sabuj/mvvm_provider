@@ -74,8 +74,24 @@ class _LoginViewState extends State<LoginView> {
                 }
             ),
 
-            SizedBox(height: height * .1,),
-            RoundButton(),
+            SizedBox(height: height * .085,),
+            RoundButton(
+              title: 'Login',
+              onPress: (){
+                if(_emailController.text.isEmpty){
+                  Utils.flushBarErrorMessage('Please Enter Valid Email', context);
+
+                }else if(_passwordController.text.isEmpty){
+                  Utils.flushBarErrorMessage('Please Enter Correct Password', context);
+
+                }else if(_passwordController.text.length < 6){
+                  Utils.flushBarErrorMessage('Please Enter 6 Digit Password', context);
+
+                }else {
+                  print('Api Hit');
+                }
+              },
+            ),
           ],
         ),
       ),
