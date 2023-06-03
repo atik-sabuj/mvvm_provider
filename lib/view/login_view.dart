@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_provider/res/components/round_button.dart';
 import 'package:mvvm_provider/utils/utils.dart';
 import 'package:mvvm_provider/view/home_screen.dart';
 import '../utils/routes/routes_name.dart';
@@ -74,6 +75,7 @@ class _LoginViewState extends State<LoginView> {
             ),
 
             SizedBox(height: height * .1,),
+            RoundButton(),
           ],
         ),
       ),
