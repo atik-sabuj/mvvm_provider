@@ -28,13 +28,13 @@ class _LoginViewState extends State<LoginView> {
               controller: _emailController,
               keyboardType: TextInputType.emailAddress,
               focusNode: emailFocusNode,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 hintText: 'Email',
                 labelText: 'Email',
                 prefixIcon: Icon(Icons.alternate_email)
               ),
               onFieldSubmitted: (value){
-                FocusScope.of(context).requestFocus(passwordFocusNode);
+                Utils.fieldFocusChange(context, emailFocusNode, passwordFocusNode);
               },
             ),
 
