@@ -22,6 +22,21 @@ class _LoginViewState extends State<LoginView> {
   FocusNode passwordFocusNode = FocusNode();
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+
+    _emailController.dispose();
+    _passwordController.dispose();
+
+    emailFocusNode.dispose();
+    passwordFocusNode.dispose();
+
+    _obsecurePassword.dispose();
+
+  }
+
+  @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height * 1;
 
@@ -80,6 +95,8 @@ class _LoginViewState extends State<LoginView> {
               onPress: (){
                 if(_emailController.text.isEmpty){
                   Utils.flushBarErrorMessage('Please Enter Valid Email', context);
+                  //Utils.snackBar('Please Enter Valid Email', context);
+                  //Utils.toastMessage('Please Enter Valid Email');
 
                 }else if(_passwordController.text.isEmpty){
                   Utils.flushBarErrorMessage('Please Enter Correct Password', context);
