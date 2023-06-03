@@ -12,7 +12,7 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
 
-  ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(false);
+  ValueNotifier<bool> _obsecurePassword = ValueNotifier<bool>(true);
 
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -22,6 +22,8 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height * 1;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Log In'),
@@ -58,12 +60,20 @@ class _LoginViewState extends State<LoginView> {
                       hintText: 'Password',
                       labelText: 'Password',
                       prefixIcon: Icon(Icons.lock_open_rounded),
-                      suffixIcon: Icon(Icons.visibility_off_outlined),
+                      suffixIcon: InkWell(
+                          onTap: (){
+                            _obsecurePassword.value = !_obsecurePassword.value;
+                          },
+                          child: Icon(
+                              _obsecurePassword.value ? Icons.visibility_off_outlined :
+                                  Icons.visibility
+                          )),
                     ),
                   );
                 }
-            )
+            ),
 
+            SizedBox(height: height * .1,),
           ],
         ),
       ),
