@@ -6,8 +6,13 @@ class AuthViewModel with ChangeNotifier {
 
   final _myRepo = AuthRepository();
 
-  Future<void> loginApi() async {
+  Future<void> loginApi(dynamic data, BuildContext context) async {
 
+    _myRepo.loginApi(data).then((value){
+
+    }).onError((error, stackTrace) {
+
+    });
   }
 
 }

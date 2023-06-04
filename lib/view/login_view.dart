@@ -110,6 +110,12 @@ class _LoginViewState extends State<LoginView> {
                   Utils.flushBarErrorMessage('Please Enter 6 Digit Password', context);
 
                 }else {
+                  Map data = {
+                    'email' : _emailController.text.toString(),
+                    'password' : _passwordController.text.toString(),
+                  };
+
+                  authViewModel.loginApi();
                   print('Api Hit');
                 }
               },
