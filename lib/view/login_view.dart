@@ -97,6 +97,7 @@ class _LoginViewState extends State<LoginView> {
             SizedBox(height: height * .085,),
             RoundButton(
               title: 'Login',
+              loading: authViewModel.loading,
               onPress: (){
                 if(_emailController.text.isEmpty){
                   Utils.flushBarErrorMessage('Please Enter Valid Email', context);
