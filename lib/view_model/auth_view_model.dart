@@ -2,6 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:mvvm_provider/respository/auth_repository.dart';
+import 'package:mvvm_provider/utils/utils.dart';
+
 
 class AuthViewModel with ChangeNotifier {
 
@@ -15,6 +17,7 @@ class AuthViewModel with ChangeNotifier {
       }
     }).onError((error, stackTrace) {
       if(kDebugMode) {
+        Utils.flushBarErrorMessage(error.toString(), context);
         print(error.toString());
       }
     });
