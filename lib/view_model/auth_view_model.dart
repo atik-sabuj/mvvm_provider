@@ -6,5 +6,8 @@ class AuthViewModel with ChangeNotifier {
 
   final _myRepo = AuthRepository();
 
+  Future<void> loginApi() async {
+
+  }
 
 }

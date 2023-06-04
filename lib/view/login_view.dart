@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mvvm_provider/res/components/round_button.dart';
 import 'package:mvvm_provider/utils/utils.dart';
 import 'package:mvvm_provider/view/home_screen.dart';
+import 'package:mvvm_provider/view_model/auth_view_model.dart';
+import 'package:provider/provider.dart';
 import '../utils/routes/routes_name.dart';
 
 class LoginView extends StatefulWidget {
@@ -38,6 +40,9 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
+
+    final authViewModel = Provider.of<AuthViewModel>(context);
+
     final height = MediaQuery.of(context).size.height * 1;
 
     return Scaffold(
