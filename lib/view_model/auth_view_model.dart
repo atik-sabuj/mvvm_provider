@@ -1,9 +1,9 @@
 
-import 'dart:js_util';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:mvvm_provider/respository/auth_repository.dart';
+import 'package:mvvm_provider/utils/routes/routes_name.dart';
 import 'package:mvvm_provider/utils/utils.dart';
 
 
@@ -25,6 +25,7 @@ class AuthViewModel with ChangeNotifier {
     _myRepo.loginApi(data).then((value){
       setLoading(false);
       Utils.flushBarErrorMessage('Login Successfully', context);
+      Navigator.pushNamed(context, RoutesName.home);
       if(kDebugMode) {
         print(value.toString());
       }
