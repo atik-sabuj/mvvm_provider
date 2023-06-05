@@ -22,7 +22,7 @@ class AuthRepository {
     }
   }
 
-  Future<dynamic> registerApi(dynamic data)async{
+  Future<dynamic> signUpApi(dynamic data)async{
 
     try{
 

@@ -123,7 +123,9 @@ class _LoginViewState extends State<LoginView> {
             ),
             SizedBox(height: height * .02,),
             InkWell(
-
+              onTap: (){
+                Navigator.pushNamed(context, RoutesName.signup);
+              },
                 child: Text("Don't Have an Account? Sign Up"))
           ],
         ),

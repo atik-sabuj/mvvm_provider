@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mvvm_provider/res/components/round_button.dart';
+import 'package:mvvm_provider/utils/routes/routes_name.dart';
 import 'package:mvvm_provider/utils/utils.dart';
 import 'package:mvvm_provider/view_model/auth_view_model.dart';
 import 'package:provider/provider.dart';
@@ -45,7 +46,7 @@ class _SignUpViewState extends State<SignUpView> {
 
       return Scaffold(
         appBar: AppBar(
-          title: Text('Log In'),
+          title: Text('Sign Up'),
           centerTitle: true,
         ),
         body: SafeArea(
@@ -94,7 +95,7 @@ class _SignUpViewState extends State<SignUpView> {
 
               SizedBox(height: height * .085,),
               RoundButton(
-                title: 'Login',
+                title: 'SignUp',
                 loading: authViewModel.loading,
                 onPress: (){
                   if(_emailController.text.isEmpty){
@@ -121,8 +122,10 @@ class _SignUpViewState extends State<SignUpView> {
               ),
               SizedBox(height: height * .02,),
               InkWell(
-
-                  child: Text("Don't Have an Account? Sign Up"))
+                onTap: (){
+                  Navigator.pushNamed(context, RoutesName.login);
+                },
+                  child: Text("Already Have an Account? Log In"))
             ],
           ),
         ),
