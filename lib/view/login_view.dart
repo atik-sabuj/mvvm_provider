@@ -121,6 +121,10 @@ class _LoginViewState extends State<LoginView> {
                 }
               },
             ),
+            SizedBox(height: height * .02,),
+            InkWell(
+
+                child: Text("Don't Have an Account? Sign Up"))
           ],
         ),
       ),
