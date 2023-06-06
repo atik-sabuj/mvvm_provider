@@ -5,6 +5,7 @@ import 'package:mvvm_provider/utils/routes/routes_name.dart';
 import 'package:mvvm_provider/view/home_screen.dart';
 import 'package:mvvm_provider/view/login_view.dart';
 import 'package:mvvm_provider/view/signup_view.dart';
+import 'package:mvvm_provider/view/splash_view.dart';
 
 class Routes {
 
@@ -12,6 +13,9 @@ class Routes {
     final arguments = settings.arguments;
 
     switch(settings.name){
+      case RoutesName.splash:
+        return MaterialPageRoute(builder: (BuildContext context) => const SplashView());
+
       case RoutesName.home:
         return MaterialPageRoute(builder: (BuildContext context) => const HomeScreen());
 
