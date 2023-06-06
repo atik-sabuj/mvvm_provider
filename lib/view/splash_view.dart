@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mvvm_provider/view/services/splash_services.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -9,10 +10,13 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
 
+  SplashServices splashServices = SplashServices();
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    splashServices.checkAuthentication(context);
   }
 
   @override
@@ -21,10 +25,8 @@ class _SplashViewState extends State<SplashView> {
       appBar: AppBar(
         title: Text('Splash Screen'),
       ),
-      body: Column(
-        children: [
-
-        ],
+      body: Center(
+        child: Text('Splash Screen', style: Theme.of(context).textTheme.headlineMedium,),
       ),
     );
   }
